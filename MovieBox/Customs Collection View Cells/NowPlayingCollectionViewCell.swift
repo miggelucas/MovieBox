@@ -9,11 +9,11 @@ import UIKit
 
 class NowPlayingCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageCell: UIImageView!
+    @IBOutlet weak var image: UIImageView!
     
-    @IBOutlet weak var tittleLabelCell: UILabel!
+    @IBOutlet weak var tittleLabel: UILabel!
     
-    @IBOutlet weak var dateLabelCell: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
 }
