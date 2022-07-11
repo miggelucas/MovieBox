@@ -9,6 +9,14 @@ import UIKit
 
 class FeaturedViewController: UIViewController {
     
+    @IBOutlet weak var popularCollectionView: UICollectionView!
+
+
+    @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
+    
+    @IBOutlet weak var upcomingCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
