@@ -41,20 +41,22 @@ class FeaturedViewController: UIViewController {
 
 extension FeaturedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as? PopularCollectionViewCell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as? PopularCollectionViewCell {
+            cell.titleLabel.text = "Título do Filme"
+            cell.image.image = UIImage()
+            
+            // return minha optinal custom cell
+            return cell
+        }
         
-        cell?.titleLabel.text = "Título do Filme"
-        cell?.image.image = UIImage()
-        
-        
-        // return minha optinal custom cell
         // se der pau, recebe uma collectionsViewCell vazia
-        return cell ?? UICollectionViewCell()
+        return UICollectionViewCell()
+
     }
     
     
