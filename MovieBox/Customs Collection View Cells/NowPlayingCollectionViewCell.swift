@@ -9,6 +9,8 @@ import UIKit
 
 class NowPlayingCollectionViewCell: UICollectionViewCell {
     
+    static let cellIdentifier = "nowPlayingCell"
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!

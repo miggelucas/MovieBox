@@ -19,6 +19,8 @@
 		172C9B7C287DF4E500999630 /* Movie+TrendingToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B77287DF4E500999630 /* Movie+TrendingToday.swift */; };
 		172C9B7D287DF4E500999630 /* Movie+Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B78287DF4E500999630 /* Movie+Upcoming.swift */; };
 		172C9B7F287E148800999630 /* FeaturedViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B7E287E148800999630 /* FeaturedViewController+UICollectionViewDataSource.swift */; };
+		172C9B83287F3FB900999630 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B82287F3FB900999630 /* DetailsViewController.swift */; };
+		172C9B85287F47C500999630 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B84287F47C500999630 /* FeaturedViewController+UICollectionViewDelegate.swift */; };
 		1743A0E728761B6D00C0FBC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1743A0E628761B6D00C0FBC6 /* Main.storyboard */; };
 		175135E328771794007C6632 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175135E228771794007C6632 /* FeaturedViewController.swift */; };
 		17E893B2287C966E009C0A00 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E893B1287C966E009C0A00 /* NowPlayingViewCell.swift */; };
@@ -42,6 +44,8 @@
 		172C9B77287DF4E500999630 /* Movie+TrendingToday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+TrendingToday.swift"; sourceTree = "<group>"; };
 		172C9B78287DF4E500999630 /* Movie+Upcoming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+Upcoming.swift"; sourceTree = "<group>"; };
 		172C9B7E287E148800999630 /* FeaturedViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		172C9B82287F3FB900999630 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		172C9B84287F47C500999630 /* FeaturedViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		1743A0E628761B6D00C0FBC6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../Downloads/Main.storyboard; sourceTree = "<group>"; };
 		175135E228771794007C6632 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		17E893B1287C966E009C0A00 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
@@ -108,10 +112,12 @@
 		17E893B0287C95D7009C0A00 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				175135E228771794007C6632 /* FeaturedViewController.swift */,
 				17E893B1287C966E009C0A00 /* NowPlayingViewCell.swift */,
 				1726992D2874AF0900074366 /* TrendingViewController.swift */,
+				175135E228771794007C6632 /* FeaturedViewController.swift */,
 				172C9B7E287E148800999630 /* FeaturedViewController+UICollectionViewDataSource.swift */,
+				172C9B84287F47C500999630 /* FeaturedViewController+UICollectionViewDelegate.swift */,
+				172C9B82287F3FB900999630 /* DetailsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -120,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				17E893B7287C981E009C0A00 /* PopularCollectionViewCell.swift */,
-				17E893B5287C97B8009C0A00 /* UpcomingCollectionViewCell.swift */,
 				17E893B3287C9698009C0A00 /* NowPlayingCollectionViewCell.swift */,
+				17E893B5287C97B8009C0A00 /* UpcomingCollectionViewCell.swift */,
 			);
 			path = "Customs Collection View Cells";
 			sourceTree = "<group>";
@@ -214,9 +220,11 @@
 				1726992A2874AF0900074366 /* AppDelegate.swift in Sources */,
 				172C9B7C287DF4E500999630 /* Movie+TrendingToday.swift in Sources */,
 				17E893B4287C9698009C0A00 /* NowPlayingCollectionViewCell.swift in Sources */,
+				172C9B85287F47C500999630 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */,
 				175135E328771794007C6632 /* FeaturedViewController.swift in Sources */,
 				17E893B8287C981E009C0A00 /* PopularCollectionViewCell.swift in Sources */,
 				172C9B79287DF4E500999630 /* Movie+NowPlaying.swift in Sources */,
+				172C9B83287F3FB900999630 /* DetailsViewController.swift in Sources */,
 				172C9B7B287DF4E500999630 /* Movie+Popular.swift in Sources */,
 				17E893B6287C97B9009C0A00 /* UpcomingCollectionViewCell.swift in Sources */,
 				17E893B2287C966E009C0A00 /* NowPlayingViewCell.swift in Sources */,

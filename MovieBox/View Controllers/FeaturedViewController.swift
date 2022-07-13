@@ -15,6 +15,10 @@ class FeaturedViewController: UIViewController {
     
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     
+    let popularMovies = Movie.popularMovies()
+    let nowPlayingMovies = Movie.nowPlayingMovies()
+    let upcomingMovies = Movie.upcomingMovies()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +28,24 @@ class FeaturedViewController: UIViewController {
         upcomingCollectionView.dataSource = self
         
         popularCollectionView.delegate = self
-        
+        nowPlayingCollectionView.delegate = self
+        upcomingCollectionView.delegate = self
+    
     }
     
 
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? DetailsViewController {
+            let movie = sender as? Movie
+            destination.movie = movie
+            
+        }
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -40,14 +58,7 @@ class FeaturedViewController: UIViewController {
 
 }
 
-//MARK: - UICollecitonView DataSource
-
-    
-    
     
 
 
-extension FeaturedViewController: UICollectionViewDelegate {
-    
-    
-}
+
