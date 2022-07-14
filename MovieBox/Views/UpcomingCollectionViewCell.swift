@@ -17,5 +17,11 @@ class UpcomingCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    
+    func setup(title : String, image : UIImage, date : String) {
+        titleLabel.text = title
+        dateLabel.text = "\(date.prefix(4))"
+        imageView.image = image
+    }
 }
 

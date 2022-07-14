@@ -12,18 +12,17 @@ extension FeaturedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == popularCollectionView {
             return Movie.popularMovies().count
-            } else if collectionView == nowPlayingCollectionView {
-                return Movie.nowPlayingMovies().count
-            } else if collectionView == upcomingCollectionView {
-                return Movie.upcomingMovies().count
-            } else {
-                return 0
-            }
+        } else if collectionView == nowPlayingCollectionView {
+            return Movie.nowPlayingMovies().count
+        } else if collectionView == upcomingCollectionView {
+            return Movie.upcomingMovies().count
+        } else {
+            return 0
+        }
     }
     
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         if collectionView == popularCollectionView {
             return makePopularCell(collectionView, indexPath)
         } else if collectionView == nowPlayingCollectionView {
@@ -37,11 +36,11 @@ extension FeaturedViewController: UICollectionViewDataSource {
     
     fileprivate func makePopularCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> PopularCollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.cellIdentifier, for: indexPath) as? PopularCollectionViewCell {
-
+            
             let movie = popularMovies[indexPath.item]
             
-            cell.titleLabel.text = movie.title
-            cell.image.image = UIImage(named: movie.backdrop)
+            cell.setup(title: movie.title,
+                       image: UIImage(named: movie.backdrop) ?? UIImage())
             
             return cell
         }
@@ -53,10 +52,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             let movie = nowPlayingMovies[indexPath.item]
             
-            cell.titleLabel.text = movie.title
-            cell.dateLabel.text = "\(movie.releaseDate.prefix(4))"
-            cell.imageView.image = UIImage(named: movie.poster)
-            
+            cell.setup(title: movie.title, image: UIImage(named: movie.poster) ?? UIImage(), date: movie.releaseDate)
             return cell
         }
         return NowPlayingCollectionViewCell()
@@ -67,9 +63,8 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             let movie = upcomingMovies[indexPath.item]
             
-            cell.titleLabel.text = movie.title
-            cell.dateLabel.text = "\(movie.releaseDate.prefix(4))"
-            cell.imageView.image = UIImage(named: movie.poster)
+            cell.setup(title: movie.title, image: UIImage(named: movie.poster) ?? UIImage(), date: movie.releaseDate)
+        
             
             return cell
         }
