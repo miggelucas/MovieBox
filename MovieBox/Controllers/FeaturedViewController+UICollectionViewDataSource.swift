@@ -11,11 +11,11 @@ extension FeaturedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == popularCollectionView {
-            return Movie.popularMovies().count
+            return popularMovies.count
         } else if collectionView == nowPlayingCollectionView {
-            return Movie.nowPlayingMovies().count
+            return nowPlayingMovies.count
         } else if collectionView == upcomingCollectionView {
-            return Movie.upcomingMovies().count
+            return upcomingMovies.count
         } else {
             return 0
         }
@@ -40,8 +40,18 @@ extension FeaturedViewController: UICollectionViewDataSource {
             let movie = popularMovies[indexPath.item]
             
             cell.setup(title: movie.title,
-                       image: UIImage(named: movie.backdrop) ?? UIImage())
+                       // nesse momento é possível colocar uma image de placeholder
+                       // enquanto o backdrop é baixado
+                       image: UIImage()
+            )
             
+            Task{
+                let imageData = await Movie.donwloadImageData(withPath: movie.backdropPath)
+                let image = UIImage(data: imageData)
+                cell.setup(title: movie.title,
+                           image: image ?? UIImage())
+            }
+           
             return cell
         }
         return PopularCollectionViewCell()
@@ -52,7 +62,19 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             let movie = nowPlayingMovies[indexPath.item]
             
-            cell.setup(title: movie.title, image: UIImage(named: movie.poster) ?? UIImage(), date: movie.releaseDate)
+            cell.setup(title: movie.title,
+                       image: UIImage(named: movie.posterPath) ?? UIImage(),
+                       date: movie.releaseDate)
+            
+            Task {
+                let imageData = await Movie.donwloadImageData(withPath: movie.posterPath)
+                let image = UIImage(data: imageData)
+
+                cell.setup(title: movie.title,
+                           image: image ?? UIImage(),
+                           date: movie.releaseDate)
+                
+            }
             return cell
         }
         return NowPlayingCollectionViewCell()
@@ -63,8 +85,19 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
             let movie = upcomingMovies[indexPath.item]
             
-            cell.setup(title: movie.title, image: UIImage(named: movie.poster) ?? UIImage(), date: movie.releaseDate)
-        
+            cell.setup(title: movie.title,
+                       image: UIImage(named: movie.posterPath) ?? UIImage(),
+                       date: movie.releaseDate)
+            Task {
+                let imageData = await Movie.donwloadImageData(withPath: movie.posterPath)
+                let image = UIImage(data: imageData)
+
+                cell.setup(title: movie.title,
+                           image: image ?? UIImage(),
+                           date: movie.releaseDate)
+                
+            }
+            
             
             return cell
         }

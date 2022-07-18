@@ -28,15 +28,24 @@ class DetailsViewController: UIViewController {
             return
         }
         
-        backdropImage.image = UIImage(named: movie.backdrop)
+
         titleLabel.text = movie.title
-        posterImage.image = UIImage(named: movie.poster)
+
+        posterImage.image = UIImage(named: movie.posterPath)
+        backdropImage.image = UIImage(named: movie.backdropPath)
         ratingLabel.text = "rating: \(movie.voteAverage)/10"
-        genresLabel.text = formatGenres(genresList: movie.genres)
+        //genresLabel.text = formatGenres(genresList: movie.genres)
         
         //durationlabel.text = stringGenres
         descriptionLabel.text = movie.overview
-        print(movie)
+        
+        Task {
+            let posterData = await Movie.donwloadImageData(withPath: movie.posterPath)
+            let backdropData = await Movie.donwloadImageData(withPath: movie.backdropPath)
+            posterImage.image = UIImage(data: posterData) ?? UIImage()
+            backdropImage.image = UIImage(data : backdropData) ?? UIImage()
+            
+        }
         // Do any additional setup after loading the view.
     }
     

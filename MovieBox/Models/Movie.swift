@@ -10,13 +10,13 @@ import UIKit
 
 
 // criando objeto para manipular os dados dos filme
-struct Movie {
+struct Movie : Codable {
     // nome do filme
     let title : String
     // imagem do poster
-    let poster : String
+    let posterPath : String
     // imagem de backdrop
-    let backdrop : String
+    let backdropPath : String
     // nota do filme
     let voteAverage : Float
     // data de lançamento
@@ -24,5 +24,10 @@ struct Movie {
     // Descrição
     let overview : String
     // gêneros
-    let genres : [String]
+    let genres : [String]?
+    
+    //let imagePoster : UIImage?
+    
+    //let imageBackdrop : UIImage?
 }
+

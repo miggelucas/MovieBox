@@ -10,14 +10,12 @@ import UIKit
 class FeaturedViewController: UIViewController {
     
     @IBOutlet weak var popularCollectionView: UICollectionView!
-
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
-    
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     
-    let popularMovies = Movie.popularMovies()
-    let nowPlayingMovies = Movie.nowPlayingMovies()
-    let upcomingMovies = Movie.upcomingMovies()
+    var popularMovies : [Movie]  = []// Movie.popularMovies()
+    var nowPlayingMovies : [Movie] = []
+    var upcomingMovies : [Movie] = []
     
     
     override func viewDidLoad() {
@@ -30,7 +28,16 @@ class FeaturedViewController: UIViewController {
         popularCollectionView.delegate = self
         nowPlayingCollectionView.delegate = self
         upcomingCollectionView.delegate = self
-    
+        
+        Task {
+            self.popularMovies = await Movie.popularMoviesAPI()
+            self.nowPlayingMovies = await Movie.nowPlayingAPI()
+            self.upcomingMovies = await Movie.upcomingAPI()
+            
+            self.popularCollectionView.reloadData()
+            self.nowPlayingCollectionView.reloadData()
+            self.upcomingCollectionView.reloadData()
+        }
     }
     
 
