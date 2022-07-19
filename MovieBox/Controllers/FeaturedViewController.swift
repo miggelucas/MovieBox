@@ -13,13 +13,33 @@ class FeaturedViewController: UIViewController {
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     
-    var popularMovies : [Movie]  = []// Movie.popularMovies()
+    var popularMovies : [Movie]  = []
     var nowPlayingMovies : [Movie] = []
     var upcomingMovies : [Movie] = []
     
     
+    
+    @IBAction func seeAllPopular(_ sender: UIButton) {
+        let movieList = popularMovies
+        performSegue(withIdentifier: "seeAllSegue", sender: movieList)
+        
+    }
+    
+    @IBAction func seeAllNowPlaying(_ sender: UIButton) {
+        let movieList = nowPlayingMovies
+        performSegue(withIdentifier: "seeAllSegue", sender: movieList)
+    }
+    
+    @IBAction func seeAllUpcoming(_ sender: UIButton) {
+        let movieList = upcomingMovies
+        performSegue(withIdentifier: "seeAllSegue", sender: movieList)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sleep(2)
         
         popularCollectionView.dataSource = self
         nowPlayingCollectionView.dataSource = self
@@ -28,11 +48,13 @@ class FeaturedViewController: UIViewController {
         popularCollectionView.delegate = self
         nowPlayingCollectionView.delegate = self
         upcomingCollectionView.delegate = self
+
+        
         
         Task {
-            self.popularMovies = await Movie.popularMoviesAPI()
-            self.nowPlayingMovies = await Movie.nowPlayingAPI()
-            self.upcomingMovies = await Movie.upcomingAPI()
+            self.popularMovies = await TmdpAPI.getPopularMovies()
+            self.nowPlayingMovies = await TmdpAPI.getNowPlayingMovies()
+            self.upcomingMovies = await TmdpAPI.getUpcomingMovies()
             
             self.popularCollectionView.reloadData()
             self.nowPlayingCollectionView.reloadData()
@@ -43,10 +65,21 @@ class FeaturedViewController: UIViewController {
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DetailsViewController {
-            let movie = sender as? Movie
-            destination.movie = movie
+        if segue.identifier == "detailsSegue" {
+            if let destination = segue.destination as? DetailsViewController {
+                let movie = sender as? Movie
+                destination.movie = movie
+            }
+        } else if segue.identifier == "seeAllSegue" {
+            if let destination = segue.destination as? SeeAllViewController {
+                
+                // eu posso dar force unwrap nesse caso?
+                let movieList = sender as! [Movie]
+                destination.movieList = movieList
+                
+            }
         }
+        
     }
     
     /*

@@ -26,8 +26,11 @@ struct Movie : Codable {
     // gêneros
     let genres : [String]?
     
+    let id : Int
+    
     //let imagePoster : UIImage?
     
     //let imageBackdrop : UIImage?
+    
 }
 

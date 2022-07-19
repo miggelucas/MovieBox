@@ -46,7 +46,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
             )
             
             Task{
-                let imageData = await Movie.donwloadImageData(withPath: movie.backdropPath)
+                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.backdropPath)
                 let image = UIImage(data: imageData)
                 cell.setup(title: movie.title,
                            image: image ?? UIImage())
@@ -67,7 +67,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
                        date: movie.releaseDate)
             
             Task {
-                let imageData = await Movie.donwloadImageData(withPath: movie.posterPath)
+                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
                 let image = UIImage(data: imageData)
 
                 cell.setup(title: movie.title,
@@ -89,7 +89,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
                        image: UIImage(named: movie.posterPath) ?? UIImage(),
                        date: movie.releaseDate)
             Task {
-                let imageData = await Movie.donwloadImageData(withPath: movie.posterPath)
+                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
                 let image = UIImage(data: imageData)
 
                 cell.setup(title: movie.title,

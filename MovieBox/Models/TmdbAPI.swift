@@ -7,18 +7,16 @@
 
 import Foundation
 
-extension Movie {
+struct TmdpAPI {
 
     static let urlComponets = URLComponents(string: "https://api.themoviedb.org/")!
     
-
-    
-    static func popularMoviesAPI() async -> [Movie] {
+    static func getPopularMovies() async -> [Movie] {
         
-        var components = Movie.urlComponets
+        var components = TmdpAPI.urlComponets
         components.path = "/3/movie/popular"
         components.queryItems = [
-            URLQueryItem(name : "api_key", value : Movie.apiKey)
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
         ]
         
         let session = URLSession.shared
@@ -41,11 +39,11 @@ extension Movie {
     }
     
     
-    static func nowPlayingAPI() async -> [Movie] {
-        var components = Movie.urlComponets
+    static func getNowPlayingMovies() async -> [Movie] {
+        var components = TmdpAPI.urlComponets
         components.path = "/3/movie/now_playing"
         components.queryItems = [
-            URLQueryItem(name : "api_key", value : Movie.apiKey)
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
         ]
         
         let session = URLSession.shared
@@ -67,11 +65,11 @@ extension Movie {
         return []
     }
     
-    static func upcomingAPI() async -> [Movie] {
-        var components = Movie.urlComponets
+    static func getUpcomingMovies() async -> [Movie] {
+        var components = TmdpAPI.urlComponets
         components.path = "/3/movie/upcoming"
         components.queryItems = [
-            URLQueryItem(name : "api_key", value : Movie.apiKey)
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
         ]
         
         let session = URLSession.shared
@@ -94,11 +92,11 @@ extension Movie {
         
     }
     
-    static func trendingTodayAPI() async -> [Movie] {
-        var components = Movie.urlComponets
+    static func getTrendingTodayMovies() async -> [Movie] {
+        var components = TmdpAPI.urlComponets
         components.path = "/3/trending/movie/day"
         components.queryItems = [
-            URLQueryItem(name : "api_key", value : Movie.apiKey)
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
         ]
         
         let session = URLSession.shared
@@ -121,11 +119,11 @@ extension Movie {
         
     }
     
-    static func trendingThisWeekAPI() async -> [Movie] {
-        var components = Movie.urlComponets
+    static func getTrendingThisWeekMovies() async -> [Movie] {
+        var components = TmdpAPI.urlComponets
         components.path = "/3/trending/movie/week"
         components.queryItems = [
-            URLQueryItem(name : "api_key", value : Movie.apiKey)
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
         ]
         
         let session = URLSession.shared
@@ -147,6 +145,37 @@ extension Movie {
         return []
         
     }
+    
+    static func getDetails(id : Int) async -> MovieDetails {
+        var components = TmdpAPI.urlComponets
+        components.path = "/3/movie/\(id)"
+        components.queryItems = [
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data, _) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let detailsResult = try decoder.decode(MovieDetails.self, from: data)
+            return detailsResult
+            
+        
+        } catch {
+            //print(error)
+            print("Deu ruim na getDetails")
+        }
+        // se der erro no do, retorna uma lista vazia
+        return MovieDetails(runtime: 0, genres: [])
+        
+    }
+    
+    
+    
     
     
     //MARK: - Download de imagens
@@ -186,10 +215,10 @@ extension Movie {
     }
 
     static func jimCarryAPI() async -> [Movie] {
-        var componets = Movie.urlComponets
+        var componets = TmdpAPI.urlComponets
         componets.path = "/3/search/person?query=jim+carrey"
         componets.queryItems = [
-            URLQueryItem(name : "api_key", value : Movie.apiKey)
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey)
         ]
         
         let session = URLSession.shared

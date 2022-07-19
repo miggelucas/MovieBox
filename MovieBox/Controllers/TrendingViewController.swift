@@ -30,14 +30,16 @@ class TrendingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         
         self.trendingTableView.dataSource = self
         self.trendingTableView.delegate = self
         // Do any additional setup after loading the view.
         
         Task {
-            trendingTodayMovies = await Movie.trendingTodayAPI()
-            trendingThisWeekMovies = await Movie.trendingThisWeekAPI()
+            trendingTodayMovies = await TmdpAPI.getTrendingTodayMovies()
+            trendingThisWeekMovies = await TmdpAPI.getTrendingThisWeekMovies()
             trendingMovies = trendingTodayMovies
             trendingTableView.reloadData()
         }
@@ -50,6 +52,8 @@ class TrendingViewController: UIViewController {
             destination.movie = movie
         }
     }
+    
+    
     
 }
 
@@ -70,7 +74,7 @@ extension TrendingViewController : UITableViewDataSource {
             )
             
             Task {
-                let imageData = await Movie.donwloadImageData(withPath: movie.posterPath)
+                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
                 let image = UIImage(data: imageData)
                 
                 cell.setup(title: movie.title,
@@ -86,11 +90,18 @@ extension TrendingViewController : UITableViewDataSource {
     
 }
 
+
+
 extension TrendingViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // mudar com base em qual segmeted esta selecionado
-        let movie = trendingMovies[indexPath.item]
         
+        let movie = trendingMovies[indexPath.item]
+
         self.performSegue(withIdentifier: "detailsSegue", sender: movie)
+        
+        // desmarca a seleção após a escolha da cell
+        tableView.cellForRow(at: indexPath)?.isSelected = false
     }
+    
+    
 }
