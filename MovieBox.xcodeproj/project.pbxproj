@@ -12,6 +12,7 @@
 		1726992E2874AF0900074366 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726992D2874AF0900074366 /* TrendingViewController.swift */; };
 		172699332874AF0B00074366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172699322874AF0B00074366 /* Assets.xcassets */; };
 		172699362874AF0B00074366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172699342874AF0B00074366 /* LaunchScreen.storyboard */; };
+		172AFD2D288616BC0071FE1E /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172AFD2C288616BC0071FE1E /* TrendingTableViewCell.swift */; };
 		172C9B6C287DEDE000999630 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B6B287DEDE000999630 /* Movie.swift */; };
 		172C9B79287DF4E500999630 /* Movie+NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B74287DF4E500999630 /* Movie+NowPlaying.swift */; };
 		172C9B7A287DF4E500999630 /* Movie+TrendingThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B75287DF4E500999630 /* Movie+TrendingThisWeek.swift */; };
@@ -40,6 +41,7 @@
 		172699322874AF0B00074366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		172699352874AF0B00074366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		172699372874AF0B00074366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		172AFD2C288616BC0071FE1E /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
 		172C9B6B287DEDE000999630 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		172C9B74287DF4E500999630 /* Movie+NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+NowPlaying.swift"; sourceTree = "<group>"; };
 		172C9B75287DF4E500999630 /* Movie+TrendingThisWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+TrendingThisWeek.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				17E893B3287C9698009C0A00 /* NowPlayingCollectionViewCell.swift */,
 				17E893B5287C97B8009C0A00 /* UpcomingCollectionViewCell.swift */,
 				172699342874AF0B00074366 /* LaunchScreen.storyboard */,
+				172AFD2C288616BC0071FE1E /* TrendingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172AFD2D288616BC0071FE1E /* TrendingTableViewCell.swift in Sources */,
 				172C9B7D287DF4E500999630 /* Movie+Upcoming.swift in Sources */,
 				1726992E2874AF0900074366 /* TrendingViewController.swift in Sources */,
 				172C9B7A287DF4E500999630 /* Movie+TrendingThisWeek.swift in Sources */,
