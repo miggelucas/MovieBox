@@ -175,6 +175,36 @@ struct TmdpAPI {
     }
     
     
+    static func getSearchMovies(searchString : String) async -> [Movie] {
+        var components = TmdpAPI.urlComponets
+        components.path = "/3/search/movie"
+        components.queryItems = [
+            URLQueryItem(name : "api_key", value : TmdpAPI.apiKey),
+            URLQueryItem(name : "query", value : searchString)
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data, _) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MoviesResponse.self, from: data)
+            print("\(movieResult.results.count) filmes no MovieResponse")
+            return movieResult.results
+            
+        
+        } catch {
+            //print(error)
+            print("Deu ruim no searchMovies")
+        }
+        // se der erro no do, retorna uma lista vazia
+        return []
+        
+    }
+    
     
     
     

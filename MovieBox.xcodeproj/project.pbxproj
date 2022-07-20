@@ -24,6 +24,8 @@
 		172C9B8E2881F8CA00999630 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C9B8D2881F8CA00999630 /* MoviesResponse.swift */; };
 		1732B0A62887204E00CAD4B2 /* SeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B0A52887204E00CAD4B2 /* SeeAllViewController.swift */; };
 		1732B0A8288720A300CAD4B2 /* SellAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732B0A7288720A300CAD4B2 /* SellAllTableViewCell.swift */; };
+		174E17C128878C2900CE9F20 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174E17C028878C2900CE9F20 /* SearchViewController.swift */; };
+		174E17C328878D0600CE9F20 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174E17C228878D0600CE9F20 /* SearchTableViewCell.swift */; };
 		175135E328771794007C6632 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175135E228771794007C6632 /* FeaturedViewController.swift */; };
 		175C1D142886F6DE0069534A /* PosterImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C1D132886F6DE0069534A /* PosterImageViewController.swift */; };
 		17E893B2287C966E009C0A00 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E893B1287C966E009C0A00 /* NowPlayingViewCell.swift */; };
@@ -52,6 +54,8 @@
 		172C9B8D2881F8CA00999630 /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
 		1732B0A52887204E00CAD4B2 /* SeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewController.swift; sourceTree = "<group>"; };
 		1732B0A7288720A300CAD4B2 /* SellAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellAllTableViewCell.swift; sourceTree = "<group>"; };
+		174E17C028878C2900CE9F20 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		174E17C228878D0600CE9F20 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		175135E228771794007C6632 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		175C1D132886F6DE0069534A /* PosterImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterImageViewController.swift; sourceTree = "<group>"; };
 		17E893B1287C966E009C0A00 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				172C9B82287F3FB900999630 /* DetailsViewController.swift */,
 				175C1D132886F6DE0069534A /* PosterImageViewController.swift */,
 				1732B0A52887204E00CAD4B2 /* SeeAllViewController.swift */,
+				174E17C028878C2900CE9F20 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				172699342874AF0B00074366 /* LaunchScreen.storyboard */,
 				172AFD2C288616BC0071FE1E /* TrendingTableViewCell.swift */,
 				1732B0A7288720A300CAD4B2 /* SellAllTableViewCell.swift */,
+				174E17C228878D0600CE9F20 /* SearchTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,10 +234,12 @@
 				172C9B8E2881F8CA00999630 /* MoviesResponse.swift in Sources */,
 				172C9B7F287E148800999630 /* FeaturedViewController+UICollectionViewDataSource.swift in Sources */,
 				1726992A2874AF0900074366 /* AppDelegate.swift in Sources */,
+				174E17C328878D0600CE9F20 /* SearchTableViewCell.swift in Sources */,
 				17E893B4287C9698009C0A00 /* NowPlayingCollectionViewCell.swift in Sources */,
 				172C9B85287F47C500999630 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */,
 				175135E328771794007C6632 /* FeaturedViewController.swift in Sources */,
 				175C1D142886F6DE0069534A /* PosterImageViewController.swift in Sources */,
+				174E17C128878C2900CE9F20 /* SearchViewController.swift in Sources */,
 				17E893B8287C981E009C0A00 /* PopularCollectionViewCell.swift in Sources */,
 				172C9B8C2881EBF700999630 /* TmdbAPI.swift in Sources */,
 				172C9B83287F3FB900999630 /* DetailsViewController.swift in Sources */,
