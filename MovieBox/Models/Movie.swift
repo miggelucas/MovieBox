@@ -14,9 +14,9 @@ struct Movie : Codable {
     // nome do filme
     let title : String
     // imagem do poster
-    let posterPath : String
+    let posterPath : String?
     // imagem de backdrop
-    let backdropPath : String
+    let backdropPath : String?
     // nota do filme
     let voteAverage : Float
     // data de lançamento

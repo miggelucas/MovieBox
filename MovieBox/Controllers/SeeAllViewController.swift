@@ -60,7 +60,7 @@ extension SeeAllViewController : UITableViewDataSource {
                        image: UIImage())
             
             Task {
-                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
+                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath ?? "")
                 let image = UIImage(data: imageData) ?? UIImage()
                 cell.setup(title: movie.title,
                            date: movie.releaseDate,

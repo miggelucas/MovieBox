@@ -8,6 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController, UISearchResultsUpdating  {
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let title = searchController.searchBar.text else {
                     return
@@ -87,7 +88,7 @@ extension SearchViewController : UITableViewDataSource {
             )
             
             Task {
-                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
+                let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath ?? "")
                 let image = UIImage(data: imageData)
                 
                 cell.setup(title: movie.title,

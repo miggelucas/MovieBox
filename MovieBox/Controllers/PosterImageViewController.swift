@@ -25,7 +25,7 @@ class PosterImageViewController: UIViewController {
         
         title = movie.title
         Task {
-            let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
+            let imageData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath ?? "")
             let image = UIImage(data: imageData) ?? UIImage()
             posterImageView.image = image
         }

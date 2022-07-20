@@ -44,8 +44,8 @@ class DetailsViewController: UIViewController {
 
         titleLabel.text = movie.title
 
-        posterImage.image = UIImage(named: movie.posterPath)
-        backdropImage.image = UIImage(named: movie.backdropPath)
+        posterImage.image = UIImage(named: movie.posterPath ?? "")
+        backdropImage.image = UIImage(named: movie.backdropPath ?? "")
         ratingLabel.text = "rating: \(movie.voteAverage)/10"
         genresLabel.text = String()
         
@@ -54,8 +54,8 @@ class DetailsViewController: UIViewController {
         
         // get poster and backdrop Image
         Task {
-            let posterData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath)
-            let backdropData = await TmdpAPI.donwloadImageData(withPath: movie.backdropPath)
+            let posterData = await TmdpAPI.donwloadImageData(withPath: movie.posterPath ?? "")
+            let backdropData = await TmdpAPI.donwloadImageData(withPath: movie.backdropPath ?? "")
             posterImage.image = UIImage(data: posterData) ?? UIImage()
             backdropImage.image = UIImage(data : backdropData) ?? UIImage()
             
