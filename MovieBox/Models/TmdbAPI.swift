@@ -197,7 +197,7 @@ struct TmdpAPI {
             
         
         } catch {
-            //print(error)
+            print(error)
             print("Deu ruim no searchMovies")
         }
         // se der erro no do, retorna uma lista vazia

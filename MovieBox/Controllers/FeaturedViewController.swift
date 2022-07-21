@@ -21,9 +21,12 @@ class FeaturedViewController: UIViewController {
     
     @IBAction func seeAllPopular(_ sender: UIButton) {
         let movieList = popularMovies
+        
+        // como mudar o tittle do see all view controller com base no que foi escolhido?
         performSegue(withIdentifier: "seeAllSegue", sender: movieList)
         
     }
+    
     
     @IBAction func seeAllNowPlaying(_ sender: UIButton) {
         let movieList = nowPlayingMovies
